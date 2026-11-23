@@ -1,0 +1,80 @@
+
+package com.example.myapplication
+
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.compose.ui.tooling.preview.Preview
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContent {
+            MaterialTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    MojaKlasa()
+                }
+            }
+        }
+    }
+}
+
+@Composable
+fun MojaKlasa() {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(24.dp)
+    ) {
+        Text(
+            text = "Moja szkoła",
+            fontSize = 32.sp
+        )
+
+        Text(
+            text = "Technikum Informatyczne",
+            fontSize = 24.sp
+        )
+
+        Opis(
+            tekst = "Klasa 3TI"
+        )
+
+        Opis(
+            tekst = "Kierunek: Technik informatyk"
+        )
+
+        Opis(
+            tekst = "Uczę się programowania i tworzenia aplikacji."
+        )
+    }
+}
+
+@Composable
+fun Opis(tekst: String) {
+    Text(
+        text = tekst,
+        fontSize = 18.sp,
+        modifier = Modifier.padding(top = 12.dp)
+    )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun PodgladMojejKlasy() {
+    MaterialTheme {
+        MojaKlasa()
+    }
+}
